@@ -1,20 +1,67 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthApiController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); // tampilan resources/views/welcome.blade.php
 });
+
+
+
+// Route::get('/login', [AuthApiController::class, 'showLoginForm'])->name('login.form');
+
+// Route::post('/login', [AuthApiController::class, 'login'])->name('login');
+
+// Route::get('/logout', [AuthApiController::class, 'logout'])->name('logout');
+
+// Route::get('/dashboard', function () {
+//     $user = session('user');
+//     return view('dashboard', compact('user'));
+// })->middleware('auth.session');
+
+
+// Route::get('/login', [AuthApiController::class, 'showLoginForm'])->name('login.form');
+// Route::post('/login', [AuthApiController::class, 'login'])->name('login');
+// Route::get('/logout', [AuthApiController::class, 'logout'])->name('logout');
+
+// Route::get('/dashboard', function () {
+//     $user = session('user');
+//     return view('dashboard', compact('user'));
+// })->middleware('auth.session');
+
+Route::get('/login', [AuthApiController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login', [AuthApiController::class, 'login'])->name('login');
+Route::get('/logout', [AuthApiController::class, 'logout'])->name('logout');
+
+// REGISTER
+Route::get('/register', [AuthApiController::class, 'showRegisterForm'])->name('register.form');
+Route::post('/register', [AuthApiController::class, 'register'])->name('register');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    $user = session('user');
+    return view('dashboard', compact('user'));
+})->middleware('auth.session');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth.session')
+    ->name('dashboard');
 
-require __DIR__.'/auth.php';
+// Route::get('/expenditure/{id}', action: [DashboardController::class, 'show'])->name('expenditure.show');
+
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/dashboard/detail/{id}', [DashboardController::class, 'show'])->name('dashboard.detail');
+
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/dashboard/detail/{id}', [DashboardController::class, 'show'])->name('dashboard.detail');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth.session')
+    ->name('dashboard');
+
+Route::get('/dashboard/{id}', [DashboardController::class, 'show'])
+    ->middleware('auth.session')
+    ->name('dashboard.detail');
+
+    Route::post('/dashboard/store', [DashboardController::class, 'storeExpenditure'])->name('dashboard.store');

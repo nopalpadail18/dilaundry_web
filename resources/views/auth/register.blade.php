@@ -1,52 +1,59 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-6">Register</h1>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        @if ($errors->has('register_error'))
+            <div class="mb-4 text-red-500 text-sm">
+                {{ $errors->first('register_error') }}
+            </div>
+        @endif
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        @if ($errors->has('api_response'))
+            <div class="mb-4 text-red-400 text-xs break-words">
+                Debug API: {{ $errors->first('api_response') }}
+            </div>
+        @endif
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <div class="mb-4">
+                <label class="block mb-1 font-medium" for="name">Name</label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" required class="w-full px-3 py-2 border rounded">
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <div class="mb-4">
+                <label class="block mb-1 font-medium" for="username">Username</label>
+                <input type="text" name="username" id="username" value="{{ old('username') }}" required class="w-full px-3 py-2 border rounded">
+            </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+            <div class="mb-4">
+                <label class="block mb-1 font-medium" for="email">Email</label>
+                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full px-3 py-2 border rounded">
+            </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <div class="mb-4">
+                <label class="block mb-1 font-medium" for="password">Password</label>
+                <input type="password" name="password" id="password" required class="w-full px-3 py-2 border rounded">
+            </div>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <div class="mb-4">
+                <label class="block mb-1 font-medium" for="password_confirmation">Confirm Password</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full px-3 py-2 border rounded">
+            </div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+            <div class="flex justify-between items-center mt-6">
+                <a href="{{ route('login.form') }}" class="text-sm text-blue-500 hover:underline">Already registered?</a>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
