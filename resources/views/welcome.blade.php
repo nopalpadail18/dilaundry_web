@@ -28,14 +28,14 @@
     </div>
 
     <nav class="flex items-center space-x-4 bg-black rounded-full px-4 py-1">
-        <a href="/welcome" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Home</a>
+        <a href="/" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Home</a>
         <a href="#" class="bg-blue-600 text-white font-medium px-3 py-1 rounded-full">Tipe Bisnis</a>
         <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Bantuan</a>
         <a href="/harga" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Harga</a>
         <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Kontak Kami</a>
     </nav>
 
-    <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold">Beli Sekarang</a>
+    <a href="{{ route('login') }}" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold">Log-in</a>
 </header>
 
     <section class="px-8 py-12 flex flex-col md:flex-row items-center justify-center gap-12  ">
@@ -53,7 +53,7 @@
             </p>
 
             <div class="flex items-center gap-4 mt-6">
-                <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-md">Beli Sekarang</a>
+                <a href="https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact" class="bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-md">Unduh Sekarang</a>
                 <button class="flex items-center gap-2 px-4 py-3 rounded-lg bg-yellow-50 text-black shadow-md">
                     <img src="{{ asset('images/share.webp') }}" alt="" class="w-5 h-5">
                 Bagikan

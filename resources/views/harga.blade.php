@@ -16,7 +16,7 @@
         </div>
 
         <nav class="flex items-center space-x-4 bg-black rounded-full px-4 py-1">
-            <a href="/welcome" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Home</a>
+            <a href="/" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Home</a>
             <a href="#" class="bg-blue-600 text-white font-medium px-3 py-1 rounded-full">Tipe Bisnis</a>
             <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Bantuan</a>
             <a href="/harga" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Harga</a>
