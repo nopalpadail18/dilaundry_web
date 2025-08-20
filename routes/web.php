@@ -7,6 +7,9 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('welcome'); // tampilan resources/views/welcome.blade.php
 });
+Route::get('/register', function () {
+    return view('register'); // tampilan resources/views/welcome.blade.php
+});
 
 
 

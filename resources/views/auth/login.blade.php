@@ -60,7 +60,7 @@
     <!-- Link daftar -->
     <p class="text-center text-sm text-gray-600 mt-4">
       Belum punya akun? 
-      <a href="{{ route('/register') }}" class="text-blue-600 hover:underline font-medium">
+      <a href="{{ route('register') }}" class="text-blue-600 hover:underline font-medium">
         Daftar di sini
       </a>
     </p>
