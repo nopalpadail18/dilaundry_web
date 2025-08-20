@@ -79,11 +79,9 @@ class AuthApiController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
 
-        // Tambahkan random suffix supaya unik
-        $uniqueSuffix = Str::random(4);
+         // Gunakan email asli dari request
         $usernameUnique = $request->username;
-        $emailParts = explode('@', $request->email);
-        $emailUnique = $emailParts[0] . $uniqueSuffix . '@' . $emailParts[1];
+        $emailUnique = $request->email;
 
         try {
             $response = Http::withHeaders(['Accept' => 'application/json'])
