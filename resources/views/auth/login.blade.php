@@ -12,7 +12,7 @@
     
     <!-- Logo -->
     <div class="mb-6 text-center">
-        <img id="logoLaundry" src="your-logo.png" alt="Logo Laundry" class="w-20 mx-auto mb-3">
+        <img id="logoLaundry" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Bg8TJO38qjCKPG-kZhkRL2Ypd_ONG4umjw&s" alt="Logo Laundry" class="w-20 mx-auto mb-3">
         <h2 class="text-xl font-semibold text-gray-700">DILAUNDRY</h2>
         <p class="text-blue-600 font-medium mt-2">Login untuk akunmu</p>
     </div>

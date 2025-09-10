@@ -10,6 +10,16 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register'); // tampilan resources/views/welcome.blade.php
 });
+Route::get('/kontak', function () {
+    return view('kontak'); // tampilan resources/views/welcome.blade.php
+});
+Route::get('/harga', function () {
+    return view('harga'); // tampilan resources/views/welcome.blade.php
+});
+Route::get('/bantuan', function () {
+    return view('bantuan'); // tampilan resources/views/welcome.blade.php
+});
+
 
 
 

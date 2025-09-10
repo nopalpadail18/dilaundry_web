@@ -30,12 +30,12 @@
     <nav class="flex items-center space-x-4 bg-black rounded-full px-4 py-1">
         <a href="/welcome" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Home</a>
         <a href="#" class="bg-blue-600 text-white font-medium px-3 py-1 rounded-full">Tipe Bisnis</a>
-        <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Bantuan</a>
+        <a href="/bantuan" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Bantuan</a>
         <a href="/harga" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Harga</a>
-        <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Kontak Kami</a>
+        <a href="/kontak" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Kontak Kami</a>
     </nav>
 
-    <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold">Beli Sekarang</a>
+    <a href="{{ route('register') }}" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold">Daftar sekarang</a>
 </header>
 
     <section class="px-8 py-12 flex flex-col md:flex-row items-center justify-center gap-12  ">
@@ -87,12 +87,97 @@
                 <img src="{{ asset('images/a.png') }}" alt="Gambar 3" class="w-40 h-40 object-contain">
                 <p class="text-black text-center mt-4">-</p>
             </div>
-
         </div>
     </div>
-       <div class="max-w-7xl mx-auto px-4 py-10">
+    
+   
+<!-- Cara Menggunakan Aplikasi Dilaundry -->
+  <!-- Main Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center py-14 px-4">
+    <!-- Title -->
+    <h2 class="text-2xl font-semibold text-center mb-4">Cara Menggunakan Aplikasi Dilaundry</h2>
+    <!-- Subtitle -->
+    <p class="text-center max-w-xl text-gray-600 mb-12">
+      Tonton video ini dan pelajari langkah-langkah mudah menggunakan aplikasi Dilaundry — dari input cucian hingga pakaian siap diambil.
+    </p>
 
-        <h2 class="text-2xl font-bold mb-2 flex justify-center">Fitur lengkap KASMINI LAUNDRY :</h2>
+    <!-- Video / Image Card -->
+    <div class="relative w-full max-w-lg mx-auto overflow-hidden">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbE4UaG0vpR1msG050U2yAOQJMRfjfkR3z2w&s" 
+           alt="video thumbnail" 
+           class="rounded-lg shadow-lg w-full h-64 object-cover cursor-pointer">
+
+      <!-- Tombol play -->
+<button id="playButton" class="absolute inset-0 flex items-center justify-center">
+  <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.518-3.758A1 1 0 007 8.345v7.31a1 1 0 001.234.97l6.518-1.88a1 1 0 00.5-.97v-1.7a1 1 0 00-.5-.97z"/>
+    </svg>
+  </div>
+</button>
+
+
+  <!-- Modal Video -->
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+    <!-- Background overlay klik close -->
+    <div id="modalOverlay" class="absolute inset-0"></div>
+
+    <!-- Konten modal -->
+    <div id="modalContent" class="relative bg-black rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 w-full max-w-3xl mx-4">
+      <!-- Tombol close -->
+      <button id="closeModal" class="absolute -top-10 right-0 text-white text-3xl font-bold">&times;</button>
+
+      <iframe id="youtubePlayer" 
+              class="rounded-lg w-full h-64 md:h-96" 
+              src="" 
+              title="Tutorial Dilaundry" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  const playButton = document.getElementById('playButton');
+  const videoModal = document.getElementById('videoModal');
+  const modalContent = document.getElementById('modalContent');
+  const closeModal = document.getElementById('closeModal');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const iframe = document.getElementById('youtubePlayer');
+
+  const videoSrc = "https://www.youtube.com/embed/VIDEO_ID?autoplay=1";
+
+  // Buka modal
+  playButton.addEventListener('click', () => {
+    videoModal.classList.remove('hidden');
+    setTimeout(() => {
+      modalContent.classList.remove('scale-90', 'opacity-0');
+      modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    iframe.src = videoSrc;
+  });
+
+  // Tutup modal
+  function closeVideoModal() {
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-90', 'opacity-0');
+    setTimeout(() => {
+      videoModal.classList.add('hidden');
+      iframe.src = ""; // stop video
+    }, 300);
+  }
+
+  closeModal.addEventListener('click', closeVideoModal);
+  modalOverlay.addEventListener('click', closeVideoModal);
+</script>
+
+<!-- Fitur lengkap DiLaundry -->
+    <div class="max-w-7xl mx-auto px-4 py-10">
+
+        <h2 class="text-2xl font-bold mb-2 flex justify-center">Fitur lengkap DiLaundry :</h2>
         <p class="text-gray-600 mb-6 flex justify-center text-center">
             Berlimpah fitur-fitur penting yang dibutuhkan dalam proses transaksi mulai dari pilihan layanan 
             <br>service, alur proses laundry, data pelanggan, hingga pencetakan struk kertas maupun digital.
@@ -186,7 +271,68 @@
             </div>
         </div>
 
-    </div>
 
+        <!-- Tombol WhatsApp -->
+  <a href="https://wa.me/6281234567890" target="_blank"
+     class="fixed bottom-5 right-5 flex items-center bg-green-500 text-white font-semibold px-4 py-2 rounded-full shadow-lg hover:bg-green-600 transition">
+    Hubungi Kami
+    <!-- Icon WhatsApp -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 .02 5.35.02 12c0 2.11.55 4.16 1.59 5.97L0 24l6.22-1.61a11.93 11.93 0 0 0 5.78 1.47h.01c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.49-8.39zM12 21.46c-1.84 0-3.64-.5-5.2-1.44l-.37-.22-3.69.96.99-3.6-.24-.38A9.43 9.43 0 0 1 2.54 12C2.54 6.76 6.76 2.54 12 2.54c2.52 0 4.89.98 6.67 2.77A9.39 9.39 0 0 1 21.46 12c0 5.24-4.22 9.46-9.46 9.46zm5.26-7.17c-.29-.15-1.71-.84-1.98-.94-.27-.1-.47-.15-.67.15s-.77.94-.94 1.14c-.17.19-.35.21-.64.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.14-.14.29-.35.44-.52.15-.17.2-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.19 0-.51.07-.77.36s-1.01.98-1.01 2.38 1.04 2.77 1.19 2.96c.15.19 2.06 3.15 4.99 4.42.7.3 1.25.48 1.68.61.71.23 1.36.2 1.87.12.57-.08 1.71-.7 1.95-1.38.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34z"/>
+    </svg>
+  </a>
+  
+    </div>
+</div>
+
+
+<!-- footer -->
+<x-footer title="Dilaundry" servicesTitle="Tentang kami" exploreTitle="jelajah" >
+     {{-- Slot Title --}}
+     <x-slot name="description">
+        <p class="text-gray-400">Layanan laundry modern dengan solusi lengkap untuk semua kebutuhan mencuci Anda. coba</p>
+     </x-slot>
+    {{-- Slot Services --}}
+    <x-slot name="services">
+        <li><a href="#" class="hover:text-white">Visi & misi</a></li>
+        <li><a href="#" class="hover:text-white">Partner / Mitra Laundry</a></li>
+        <li><a href="#" class="hover:text-white">Mengapa Pilih Kami</a></li> 
+    </x-slot>
+    {{-- Slot Jelajahi --}}
+    <x-slot name="explore">
+        <li><a href="#" class="hover:text-white">cara kerja</a></li> 
+        <li><a href="#" class="hover:text-white">Syarat & Ketentuan</a></li> 
+        <li><a href="#" class="hover:text-white">Blog / Artikel</a></li> 
+    </x-slot>
+    {{-- Slot Download --}}
+    <x-slot name="download">
+        <img src="https://placehold.co/150x50/3b82f6/ffffff?text=App+Store" class="h-10">
+        <img src="https://placehold.co/150x50/3b82f6/ffffff?text=Google+Play" class="h-10">
+    </x-slot>
+    {{-- Slot Social --}}
+    <x-slot name="social">
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f text-xl"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+    </x-slot>
+</x-footer>
+  
+
+
+
+
+<!-- bagian footer cadangan -->
+    <!-- <x-footer 
+    judul1="Dilaundry" 
+    text="Layanan laundry modern dengan solusi lengkap untuk semua kebutuhan mencuci Anda."
+
+    judul2="Tentang Kami" 
+    subjudul1="Visi & misi" subjudul2="Partner / Mitra Laundry"
+    subjudul3="Mengapa Pilih Kami"
+    
+    judul3="jelajah"
+    subjudul6="cara kerja" subjudul7="Syarat & Ketentuan" subjudul8="Blog / Artikel"
+    
+    ></x-footer> -->
 </body>
 </html>

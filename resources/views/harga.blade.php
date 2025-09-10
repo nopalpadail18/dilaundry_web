@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harga - DI LAUNDRY</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harga - DI LAUNDRY</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white"> <!-- body jadi putih aja -->
 
-    <!-- HEADER -->
-    <header class="px-8 py-4 flex items-center justify-between border-b bg-white">
-        <div class="flex items-center space-x-2">
-            <span class="text-red-500 text-2xl font-extrabold tracking-tight">DI</span>
-            <span class="text-blue-600 text-2xl font-extrabold tracking-tight">LAUNDRY</span>
+  <x-navbar></x-navbar>
+
+  <!-- Section Harga -->
+  <section class="max-w-7xl mx-auto px-4 py-10 bg-green-100 mt-10">
+    <main class="max-w-5xl mx-auto px-6 text-center">
+      <!-- Title -->
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Harga perbulannya :</h2>
+      <hr class="border-gray-400 mb-10">
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch justify-center">
+        
+        <!-- Card 1 -->
+        <div class="w-full max-w-[220px] mx-auto flex flex-col">
+          <div class="bg-green-700 text-green-100 text-xl font-bold py-3 rounded-t-lg text-center">
+            RP.35.000
+          </div>
+          <div class="bg-yellow-200 p-6 rounded-b-lg flex-1 flex flex-col items-center justify-start">
+            <img src="{{ asset('images/sekalibayar.png') }}" alt="ikon harga" class="w-20 h-20 object-contain mb-4">
+            <p class="text-gray-800 text-sm text-center leading-relaxed">
+              1 Pengaplikasian <br> Rp. 35.000 Perbulan
+            </p>
+          </div>
         </div>
 
-        <nav class="flex items-center space-x-4 bg-black rounded-full px-4 py-1">
-            <a href="/welcome" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Home</a>
-            <a href="#" class="bg-blue-600 text-white font-medium px-3 py-1 rounded-full">Tipe Bisnis</a>
-            <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Bantuan</a>
-            <a href="/harga" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Harga</a>
-            <a href="#" class="text-white font-medium px-3 py-1 rounded-full hover:bg-blue-600 transition">Kontak Kami</a>
-        </nav>
+        <!-- Card 2 -->
+        <div class="w-full max-w-[220px] mx-auto flex flex-col">
+          <div class="bg-yellow-400 text-green-700 text-xl font-bold py-3 rounded-t-lg text-center">
+            RP.100.000
+          </div>
+          <div class="bg-green-400 p-6 rounded-b-lg flex-1 flex flex-col items-center justify-start">
+            <img src="{{ asset('images/sekalibayar.png') }}" alt="ikon harga" class="w-20 h-20 object-contain mb-4">
+            <p class="text-gray-800 text-sm text-center leading-relaxed">
+              5 Pengaplikasian <br> 100.000 Perbulan
+            </p>
+          </div>
+        </div>
 
-        <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold">Beli Sekarang</a>
-    </header>
+        <!-- Card 3 -->
+        <div class="w-full max-w-[220px] mx-auto flex flex-col">
+          <div class="bg-green-600 text-white text-md font-bold py-3 rounded-t-lg text-center">
+            HUBUNGI NO CUSTOMER
+          </div>
+          <div class="bg-yellow-300 p-6 rounded-b-lg flex-1 flex flex-col items-center justify-start">
+            <img src="{{ asset('images/datapengguna.png') }}" alt="ikon harga" class="w-20 h-20 object-contain mb-4">
+            <p class="text-gray-800 text-sm text-center leading-relaxed">
+              Diatas 5 Pengaplikasian <br> mohon Hubungi Customer
+            </p>
+          </div>
+        </div>
 
-<!-- SECTION HARGA -->
-<section class="px-8 py-12">
-    <!-- Judul & Deskripsi -->
-  <div class="text-center mb-10">
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">
-      Pilih Paket Terbaik untuk Bisnis Anda
-    </h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-      Dapatkan layanan terbaik dengan harga terjangkau.  
-      Paket fleksibel untuk memenuhi semua kebutuhan Anda,  
-      mulai dari usaha kecil hingga skala besar.
-    </p>
-  </div>
-  <div class="grid grid-cols-3 gap-8 max-w-5xl mx-auto">
-    <!-- Card 1 -->
-    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Icon 1" class="w-16 h-16 mb-4">
-      <p class="text-lg font-medium">1 Pengaplikasian</p>
-      <p class="text-gray-700">Rp. 35.000 Perbulan</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/891/891463.png" alt="Icon 2" class="w-16 h-16 mb-4">
-      <p class="text-lg font-medium">5 Pengaplikasian</p>
-      <p class="text-gray-700">Rp. 100.000 Perbulan</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Icon 3" class="w-16 h-16 mb-4">
-      <p class="text-lg font-medium">Diatas 5 Pengaplikasian</p>
-      <p class="text-gray-700">Mohon Hubungi Customer</p>
-    </div>
-  </div>
-</section>
-
-
+      </div>
+    </main>
+  </section>
 
 </body>
 </html>
